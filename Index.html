@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Controle de Ingressos</title>
+
+  <style>
+    body {
+      font-family: Arial;
+      background: #0f172a;
+      color: white;
+      text-align: center;
+      padding: 50px;
+    }
+
+    .container {
+      background: #1e293b;
+      padding: 30px;
+      border-radius: 15px;
+      max-width: 400px;
+      margin: auto;
+    }
+
+    input {
+      padding: 10px;
+      width: 80%;
+      margin: 5px;
+      border-radius: 10px;
+      border: none;
+    }
+
+    button {
+      padding: 10px;
+      border: none;
+      border-radius: 10px;
+      background: #22c55e;
+      color: white;
+      cursor: pointer;
+    }
+
+    .msg {
+      margin-top: 15px;
+      font-size: 18px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <h1>🎟️ Controle de Evento</h1>
+
+    <input type="number" id="alunos" placeholder="Quantidade de alunos"><br>
+    <input type="number" id="monitores" placeholder="Quantidade de monitores"><br>
+    <input type="number" id="convidados" placeholder="Quantidade de convidados"><br>
+
+    <button onclick="verificar()">Verificar</button>
+
+    <div class="msg" id="resultado"></div>
+  </div>
+
+  <script>
+    function verificar() {
+      let alunos = Number(document.getElementById("alunos").value);
+      let monitores = Number(document.getElementById("monitores").value);
+      let convidados = Number(document.getElementById("convidados").value);
+
+      let total = alunos + monitores + convidados;
+      let resultado = document.getElementById("resultado");
+
+      if (convidados > 20) {
+        resultado.innerText = "❌ Limite de convidados excedido (máx: 20)";
+      } else if (total > 100) {
+        resultado.innerText = "❌ Número total de pessoas excede os ingressos (100)";
+      } else {
+        resultado.innerText = "✅ Tudo certo! Evento dentro das regras";
+      }
+    }
+  </script>
+
+</body>
+</html>
